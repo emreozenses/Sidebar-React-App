@@ -6,9 +6,15 @@ const GlobalContext = createContext();
 export const useGlobalContext =()=> useContext(GlobalContext);
 
 const AppContext =({children})=>{
-    const [name,setName] = useState('');
+    const [isSidebarOpen,setIsSidebarOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const OpenModal =()=>setIsModalOpen(true);
+    const CloseModal =()=>setIsModalOpen(false);
+    const OpenSidebar =()=>setIsSidebarOpen(true);
+    const CloseSidebar = ()=>setIsSidebarOpen(false);
     return(
-        <GlobalContext.Provider value={{name,setName}}>
+        <GlobalContext.Provider value={{isModalOpen,isSidebarOpen,setIsModalOpen,setIsSidebarOpen,OpenModal,OpenSidebar,CloseModal,CloseSidebar}}>
             {children}
         </GlobalContext.Provider>
     )

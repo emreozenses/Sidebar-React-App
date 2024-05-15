@@ -6,13 +6,30 @@ import { useGlobalContext } from './Context'
 
 
 const Home = () => {
-    const { name } = useGlobalContext();
+    const {
+      isModalOpen,
+      isSidebarOpen,
+      setIsModalOpen,
+      setIsSidebarOpen,
+      OpenModal,
+      OpenSidebar,
+      CloseModal,
+      CloseSidebar,
+    } = useGlobalContext()
   return (
-    <section>
-        <button type='button'><FaBars/>{name}</button>
-        <Sidebar/>
-        <Modal/>
-        <button type='button' className='btn'>Show Modal</button>
+    <section className="home">
+      <button className='sidebar-toggle' type="button" onClick={isSidebarOpen ? CloseSidebar : OpenSidebar}>
+        <FaBars />
+      </button>
+      <Sidebar/>
+      {isModalOpen && <Modal/>}
+      <button
+        type="button"
+        className="btn"
+        onClick={isModalOpen ? CloseModal : OpenModal}
+      >
+        Show Modal
+      </button>
     </section>
   )
 }
