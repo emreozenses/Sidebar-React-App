@@ -26,7 +26,7 @@ const Home = () => {
       <button
         type="button"
         className="btn"
-        onClick={isModalOpen ? CloseModal : OpenModal}
+        onClick={!isModalOpen && OpenModal}
       >
         Show Modal
       </button>
