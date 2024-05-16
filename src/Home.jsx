@@ -17,20 +17,18 @@ const Home = () => {
       CloseSidebar,
     } = useGlobalContext()
   return (
-    <section className="home">
-      <button className='sidebar-toggle' type="button" onClick={isSidebarOpen ? CloseSidebar : OpenSidebar}>
+    <main className="home">
+      <button className='sidebar-toggle' type="button" onClick={OpenSidebar}>
         <FaBars />
       </button>
-      <Sidebar/>
-      {isModalOpen && <Modal/>}
-      <button
+       <button
         type="button"
         className="btn"
-        onClick={!isModalOpen && OpenModal}
+        onClick={OpenModal}
       >
         Show Modal
       </button>
-    </section>
+    </main>
   )
 }
 
